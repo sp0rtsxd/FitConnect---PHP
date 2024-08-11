@@ -1,0 +1,352 @@
+:root {
+	--primary-color: #00a3e0;
+	--secondary-color: #00cd97;
+	--dark-bg: #1a1a1a;
+	--light-bg: #f8f9fa;
+	--text-color: #333;
+	--light-text: #ffffff;
+	--card-bg: #ffffff;
+	--card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+	--transition: all 0.3s ease;
+}
+
+body {
+	font-family: "Alexandria", sans-serif;
+	transition: var(--transition);
+	color: var(--text-color);
+	background-color: var(--light-bg);
+}
+
+/* Navbar Styles - Matching main page */
+.navbar {
+	background-color: var(--bg-color); /* White background */
+	padding-top: 10px; /* Matching padding from main page */
+	padding-bottom: 10px;
+}
+
+.navbar-brand,
+.nav-link {
+	color: var(--text-color) !important; /* Dark text on white background */
+	transition: var(--transition);
+}
+
+.nav-link:hover {
+	opacity: 0.8;
+}
+
+.pricing-section {
+	padding: 100px 0;
+}
+
+.pricing-header {
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.pricing-card {
+	background-color: var(--card-bg);
+	border-radius: 20px;
+	padding: 40px;
+	box-shadow: var(--card-shadow);
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	transition: var(--transition);
+	overflow: hidden;
+	position: relative;
+}
+
+.pricing-card:hover {
+	transform: translateY(-15px);
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.pricing-card.featured::before {
+	content: "MOST POPULAR";
+	position: absolute;
+	top: 20px;
+	right: -35px;
+	transform: rotate(45deg);
+	background: linear-gradient(
+		to right,
+		var(--primary-color),
+		var(--secondary-color)
+	);
+	color: var(--light-text);
+	padding: 5px 40px;
+	font-size: 0.8rem;
+	font-weight: bold;
+}
+
+.price {
+	font-size: 3rem;
+	font-weight: bold;
+	margin: 20px 0;
+	background: linear-gradient(
+		to right,
+		var(--primary-color),
+		var(--secondary-color)
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.btn-gradient {
+	background: linear-gradient(
+		to right,
+		var(--primary-color),
+		var(--secondary-color)
+	);
+	border: none;
+	color: var(--light-text);
+	transition: var(--transition);
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.btn-gradient::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 100%;
+	background: linear-gradient(
+		to left,
+		var(--primary-color),
+		var(--secondary-color)
+	);
+	transition: var(--transition);
+	z-index: -1;
+}
+
+.btn-gradient:hover::before {
+	width: 100%;
+}
+
+.cta-section {
+	background: linear-gradient(
+		to right,
+		var(--primary-color),
+		var(--secondary-color)
+	);
+	color: var(--light-text);
+	padding: 80px 0;
+	text-align: center;
+	clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+}
+
+.footer {
+	background-color: var(--dark-bg);
+	color: var(--light-text);
+	padding: 50px 0;
+}
+
+.social-icons a {
+	color: var(--light-text);
+	font-size: 1.5rem;
+	margin-right: 20px;
+	transition: var(--transition);
+}
+
+.social-icons a:hover {
+	color: var(--secondary-color);
+	transform: translateY(-3px);
+}
+
+.theme-switch-wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.theme-switch {
+	display: inline-block;
+	height: 34px;
+	position: relative;
+	width: 60px;
+}
+
+.theme-switch input {
+	display: none;
+}
+
+.slider {
+	background-color: #ccc;
+	bottom: 0;
+	cursor: pointer;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: var(--transition);
+	border-radius: 34px;
+}
+
+.slider:before {
+	background-color: var(--light-text);
+	bottom: 4px;
+	content: "";
+	height: 26px;
+	left: 4px;
+	position: absolute;
+	transition: var(--transition);
+	width: 26px;
+	border-radius: 50%;
+}
+
+input:checked + .slider {
+	background: linear-gradient(
+		to right,
+		var(--primary-color),
+		var(--secondary-color)
+	);
+}
+
+input:checked + .slider:before {
+	transform: translateX(26px);
+}
+
+body.dark-mode {
+	--text-color: #ffffff;
+	--light-bg: #1a1a1a;
+	--card-bg: #2a2a2a;
+	--card-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.section-title {
+	font-family: Alexandria, sans-serif;
+	font-size: 3.5rem;
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 40px;
+	background: linear-gradient(
+		to right,
+		var(--primary-color),
+		var(--secondary-color)
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+	.pricing-card {
+		margin-bottom: 30px;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+	}
+}
+
+/* Styling for the theme toggle icons */
+.slider .icon {
+	color: #f39c12;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: opacity 0.3s ease;
+	font-size: 18px;
+}
+
+/* Add this to your CSS file */
+
+@keyframes liftDumbbell {
+	0%,
+	100% {
+		transform: translateY(0) rotate(0deg);
+	}
+	25% {
+		transform: translateY(-2px) rotate(-3deg);
+	}
+	75% {
+		transform: translateY(-2px) rotate(3deg);
+	}
+}
+
+@keyframes pumpIron {
+	0%,
+	100% {
+		transform: scaleX(1);
+	}
+	50% {
+		transform: scaleX(1.1);
+	}
+}
+
+@keyframes glowPulse {
+	0%,
+	100% {
+		filter: drop-shadow(0 0 2px rgba(76, 175, 80, 0.5));
+	}
+	50% {
+		filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.8));
+	}
+}
+
+@keyframes colorShift {
+	0%,
+	100% {
+		stop-color: #4caf50;
+	}
+	50% {
+		stop-color: #45a049;
+	}
+}
+
+.navbar-brand svg {
+	transition: all 0.3s ease;
+}
+
+.navbar-brand:hover svg {
+	transform: scale(1.1);
+}
+
+.navbar-brand svg rect {
+	animation: glowPulse 2s infinite;
+}
+
+.navbar-brand svg #bgGradient stop {
+	animation: colorShift 4s infinite alternate;
+}
+
+.navbar-brand svg path[fill="#ffffff"] {
+	animation: liftDumbbell 2s ease-in-out infinite;
+}
+
+.navbar-brand:hover svg path[fill="#ffffff"] {
+	animation: liftDumbbell 0.5s ease-in-out infinite;
+}
+
+.navbar-brand svg path[fill="#e6e6e6"] {
+	animation: pumpIron 2s ease-in-out infinite;
+}
+
+.navbar-brand:hover svg path[fill="#e6e6e6"] {
+	animation: pumpIron 0.5s ease-in-out infinite;
+}
+
+/* 3D effect on hover */
+.navbar-brand svg {
+	transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover svg {
+	transform: perspective(100px) rotateX(5deg) rotateY(-5deg) scale(1.1);
+}
+.slider .sun {
+	left: 6px;
+}
+
+.slider .moon {
+	right: 6px;
+	opacity: 0;
+}
+
+input:checked + .slider .sun {
+	opacity: 0;
+}
+
+input:checked + .slider .moon {
+	opacity: 1;
+}

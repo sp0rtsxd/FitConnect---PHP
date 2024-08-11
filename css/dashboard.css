@@ -1,0 +1,321 @@
+/* -------------------- 
+            Base Styles 
+        -------------------- */
+:root {
+	--primary-color: #4caf50;
+	--secondary-color: #45a049;
+	--text-color: #333;
+	--light-color: #f4f4f4;
+	--dark-bg-color: #121212;
+	--dark-text-color: #f4f4f4;
+	--link-color: #2196f3;
+	--bg-color: #ffffff;
+	--card-bg: #f8f9fa;
+}
+
+body {
+	font-family: "Alexandria", sans-serif;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	transition: background-color 0.3s, color 0.3s;
+}
+
+/* --------------------
+           Navigation Bar 
+        -------------------- */
+.navbar {
+	background-color: var(--bg-color);
+	padding: 1rem 2rem;
+	width: 100%;
+	z-index: 1000;
+	transition: background-color 0.3s ease;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .nav-link {
+	color: var(--text-color) !important;
+}
+
+.navbar-light .nav-link:hover {
+	color: var(--link-color) !important;
+}
+
+/* --------------------
+           Theme Switch 
+        -------------------- */
+.theme-switch-wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.theme-switch {
+	display: inline-block;
+	height: 34px;
+	position: relative;
+	width: 60px;
+}
+
+.theme-switch input {
+	display: none;
+}
+
+.slider {
+	background-color: #ccc;
+	bottom: 0;
+	cursor: pointer;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: 0.4s;
+	border-radius: 34px;
+}
+
+.slider:before {
+	background-color: #fff;
+	bottom: 4px;
+	content: "";
+	height: 26px;
+	left: 4px;
+	position: absolute;
+	transition: 0.4s;
+	width: 26px;
+	border-radius: 50%;
+}
+
+input:checked + .slider {
+	background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+	transform: translateX(26px);
+}
+
+.slider .icon {
+	color: #f39c12;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: opacity 0.3s ease;
+	font-size: 18px;
+}
+
+.slider .sun {
+	left: 6px;
+}
+
+.slider .moon {
+	right: 6px;
+	opacity: 0;
+}
+
+input:checked + .slider .sun {
+	opacity: 0;
+}
+
+input:checked + .slider .moon {
+	opacity: 1;
+}
+
+/* --------------------
+           Dashboard Layout 
+        -------------------- */
+.dashboard-container {
+	display: flex;
+	padding-top: 60px; /* Adjust for fixed navbar */
+	min-height: calc(100vh - 60px); /* Adjust for fixed navbar */
+}
+
+.sidebar {
+	background-color: var(--card-bg);
+	color: var(--text-color);
+	padding: 2rem;
+	min-height: 100%;
+	width: 250px;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar a {
+	color: var(--text-color);
+	transition: color 0.3s;
+}
+
+.sidebar a:hover {
+	color: var(--primary-color);
+}
+
+.content {
+	flex: 1;
+	padding: 2rem;
+}
+
+/* --------------------
+           Card Styling 
+        -------------------- */
+.card {
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+}
+
+.card:hover {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+	padding: 2rem;
+}
+
+.progress {
+	height: 10px;
+	border-radius: 5px;
+}
+
+/* --------------------
+           Other Styles
+        -------------------- */
+h1,
+h2,
+h3 {
+	font-weight: 700;
+}
+
+.text-muted {
+	transition: color 0.3s;
+}
+
+/* --------------------
+           Media Query 
+        -------------------- */
+@media (max-width: 768px) {
+	.dashboard-container {
+		flex-direction: column;
+	}
+
+	.sidebar {
+		width: 100%;
+	}
+}
+
+/* -------------------- 
+            Dark Mode Styles 
+        -------------------- */
+.dark-mode {
+	--text-color: #e9e9e9;
+	--bg-color: #121212;
+	--card-bg: #212529;
+}
+
+.dark-mode .navbar {
+	background-color: var(--card-bg);
+}
+
+.dark-mode .sidebar {
+	background-color: var(--card-bg);
+	color: var(--dark-text-color);
+}
+
+.dark-mode .sidebar a {
+	color: var(--dark-text-color);
+}
+
+.dark-mode .content .card {
+	background-color: var(--card-bg);
+	color: var(--dark-text-color);
+}
+
+.dark-mode .text-muted {
+	color: #adb5bd !important;
+}
+/* -------------------- 
+           Dumbbell Animation
+        -------------------- */
+
+@keyframes liftDumbbell {
+	0%,
+	100% {
+		transform: translateY(0) rotate(0deg);
+	}
+	25% {
+		transform: translateY(-2px) rotate(-3deg);
+	}
+	75% {
+		transform: translateY(-2px) rotate(3deg);
+	}
+}
+
+@keyframes pumpIron {
+	0%,
+	100% {
+		transform: scaleX(1);
+	}
+	50% {
+		transform: scaleX(1.1);
+	}
+}
+
+@keyframes glowPulse {
+	0%,
+	100% {
+		filter: drop-shadow(0 0 2px rgba(76, 175, 80, 0.5));
+	}
+	50% {
+		filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.8));
+	}
+}
+
+@keyframes colorShift {
+	0%,
+	100% {
+		stop-color: #4caf50;
+	}
+	50% {
+		stop-color: #45a049;
+	}
+}
+
+.navbar-brand svg {
+	transition: all 0.3s ease;
+}
+
+.navbar-brand:hover svg {
+	transform: scale(1.1);
+}
+
+.navbar-brand svg rect {
+	animation: glowPulse 2s infinite;
+}
+
+.navbar-brand svg #bgGradient stop {
+	animation: colorShift 4s infinite alternate;
+}
+
+.navbar-brand svg path[fill="#ffffff"] {
+	animation: liftDumbbell 2s ease-in-out infinite;
+}
+
+.navbar-brand:hover svg path[fill="#ffffff"] {
+	animation: liftDumbbell 0.5s ease-in-out infinite;
+}
+
+.navbar-brand svg path[fill="#e6e6e6"] {
+	animation: pumpIron 2s ease-in-out infinite;
+}
+
+.navbar-brand:hover svg path[fill="#e6e6e6"] {
+	animation: pumpIron 0.5s ease-in-out infinite;
+}
+
+/* 3D effect on hover */
+.navbar-brand svg {
+	transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover svg {
+	transform: perspective(100px) rotateX(5deg) rotateY(-5deg) scale(1.1);
+}
