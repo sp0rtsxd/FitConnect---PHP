@@ -244,6 +244,9 @@
                     <li class="nav-item">
                         <a class="nav-link <?php echo ($currentPage === 'blog') ? 'active' : ''; ?>" href="blog.php">Blog</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo ($currentPage === 'contact') ? 'active' : ''; ?>" href="contact.php">Contact</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             More
@@ -254,9 +257,6 @@
                             <li><a class="dropdown-item <?php echo ($currentPage === 'privacy') ? 'active' : ''; ?>" href="privacy.php">Privacy</a></li>
                             <li><a class="dropdown-item <?php echo ($currentPage === 'our-service') ? 'active' : ''; ?>" href="our-service.php">Our Service</a></li>
                         </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?php echo ($currentPage === 'contact') ? 'active' : ''; ?>" href="contact.php">Contact</a>
                     </li>
                     <?php if ($currentPage !== 'dashboard' && $currentPage !== 'profile' && $currentPage !== 'settings') : ?>
                         <li class="nav-item">
