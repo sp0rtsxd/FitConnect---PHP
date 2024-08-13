@@ -5,6 +5,8 @@
   --text-color: #333333;
   --card-background: #ffffff;
   --input-background: #f0f0f0;
+  --input-text-color: #333;
+  --border-color: #ced4da;
 }
 
 body {
@@ -14,83 +16,86 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navbar {
   background-color: var(--background-color);
-  padding: 1rem 0;
-  transition: background-color 0.3s ease;
-  /* Fixed positioning for the navbar */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-}
-.theme-switch-item {
-  margin-left: 20px; /* Adjust the value (20px) as needed */
-}
-.navbar-brand {
-  font-weight: 700;
-  color: var(--text-color);
-  transition: color 0.3s ease;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
+.navbar-brand,
 .nav-link {
-  color: var(--text-color);
-  transition: color 0.3s ease;
+  color: var(--text-color) !important;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
 }
 
 .login-container {
+  flex: 1;
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: #f0f2f5;
+  justify-content: center;
+  padding: 2rem 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .login-card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  background-color: var(--card-background);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
   width: 100%;
   max-width: 400px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .login-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem;
   text-align: center;
-  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .login-header h2 {
-  color: #4caf50;
-  margin-top: 1rem;
+  margin-bottom: 0;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
 }
 
 .login-form {
   padding: 2rem;
 }
-.contact-item {
-  margin-right: 20px; /* Adjust the value (20px) as needed */
-}
 
 .form-control {
+  border-radius: 5px;
+  padding: 0.75rem 1.5rem;
   margin-bottom: 1rem;
-  padding: 0.75rem;
-  border-radius: 4px;
-  border: 1px solid #ced4da;
+  background-color: var(--input-background);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  color: var(--input-text-color);
 }
 
 .btn-login {
-  background-color: #4caf50;
-  color: white;
-  width: 100%;
-  padding: 0.75rem;
+  background-color: var(--primary-color);
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  border-radius: 5px;
+  padding: 0.75rem 2rem;
+  font-weight: 500;
+  width: 100%;
+  color: white;
+  transition: all 0.3s ease;
 }
 
 .btn-login:hover {
@@ -106,10 +111,9 @@ body {
   margin-bottom: 1rem;
 }
 
-.social-login {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
+.forgot-password {
+  color: var(--text-color);
+  text-decoration: none;
 }
 
 .social-login {
@@ -117,67 +121,24 @@ body {
   justify-content: center;
   margin-top: 1rem;
 }
-.social-login a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.social-icon {
-  display: flex;
-  justify-content: center;
+
+.social-login a {
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  background-color: var(--input-background);
+  color: var(--text-color);
   margin: 0 0.5rem;
-  background-color: #f0f2f5;
-  color: #555;
-}
-.theme-switch-wrapper {
-  display: flex;
-  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-.theme-switch {
-  display: inline-block;
-  height: 34px;
-  position: relative;
-  width: 60px;
-}
-
-.theme-switch input {
-  display: none;
-}
-
-.slider {
-  background-color: #ccc;
-  bottom: 0;
-  cursor: pointer;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transition: 0.4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  background-color: #fff;
-  bottom: 4px;
-  content: "";
-  height: 26px;
-  left: 4px;
-  position: absolute;
-  transition: 0.4s;
-  width: 26px;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: var(--primary-color);
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
+.social-login a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .shape {
@@ -202,37 +163,44 @@ input:checked + .slider:before {
   right: -100px;
 }
 
-/* Dark mode styles */
 [data-theme="dark"] {
   --background-color: #1a1a1a;
   --text-color: #ffffff;
   --card-background: #2a2a2a;
   --input-background: #3a3a3a;
-  --input-text-color: #ffffff; /* Add this line */
+  --input-text-color: #ffffff;
+  --border-color: #ffffff;
 }
 
-/* Target navbar text specifically in dark mode */
 [data-theme="dark"] .navbar .nav-link,
 [data-theme="dark"] .navbar-brand {
   color: #ffffff !important;
 }
 
 [data-theme="dark"] .form-control {
-  color: var(--input-text-color); /* Use the new variable */
   background-color: var(--input-background);
+  color: var(--input-text-color);
+  border-color: var(--border-color);
 }
 
-/* Target "Forgot password?" link color */
+[data-theme="dark"] .form-check-input {
+  background-color: var(--input-background);
+  border-color: #ffffff;
+}
+
+[data-theme="dark"] .form-check-input:checked {
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+
 [data-theme="dark"] .remember-forgot a {
   color: #bbb;
 }
 
-/* Target "Sign Up" link color */
 [data-theme="dark"] .text-center a {
   color: #4caf50;
 }
 
-/* Target social login icon color */
 [data-theme="dark"] .social-login a svg {
   fill: #ffffff;
 }
@@ -242,7 +210,6 @@ input:checked + .slider:before {
   color: #ffffff;
 }
 
-/* Basic Checkbox Styling */
 .form-check-input {
   width: 20px;
   height: 20px;
@@ -326,112 +293,19 @@ input:checked + .slider:before {
     background-position: 50px 0;
   }
 }
-/* Add this to your CSS file */
 
-@keyframes liftDumbbell {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0deg);
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .login-card {
+    max-width: 90%;
   }
-  25% {
-    transform: translateY(-2px) rotate(-3deg);
+
+  .remember-forgot {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  75% {
-    transform: translateY(-2px) rotate(3deg);
+
+  .forgot-password {
+    margin-top: 0.5rem;
   }
-}
-
-@keyframes pumpIron {
-  0%,
-  100% {
-    transform: scaleX(1);
-  }
-  50% {
-    transform: scaleX(1.1);
-  }
-}
-
-@keyframes glowPulse {
-  0%,
-  100% {
-    filter: drop-shadow(0 0 2px rgba(76, 175, 80, 0.5));
-  }
-  50% {
-    filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.8));
-  }
-}
-
-@keyframes colorShift {
-  0%,
-  100% {
-    stop-color: #4caf50;
-  }
-  50% {
-    stop-color: #45a049;
-  }
-}
-
-.navbar-brand svg {
-  transition: all 0.3s ease;
-}
-
-.navbar-brand:hover svg {
-  transform: scale(1.1);
-}
-
-.navbar-brand svg rect {
-  animation: glowPulse 2s infinite;
-}
-
-.navbar-brand svg #bgGradient stop {
-  animation: colorShift 4s infinite alternate;
-}
-
-.navbar-brand svg path[fill="#ffffff"] {
-  animation: liftDumbbell 2s ease-in-out infinite;
-}
-
-.navbar-brand:hover svg path[fill="#ffffff"] {
-  animation: liftDumbbell 0.5s ease-in-out infinite;
-}
-
-.navbar-brand svg path[fill="#e6e6e6"] {
-  animation: pumpIron 2s ease-in-out infinite;
-}
-
-.navbar-brand:hover svg path[fill="#e6e6e6"] {
-  animation: pumpIron 0.5s ease-in-out infinite;
-}
-
-/* 3D effect on hover */
-.navbar-brand svg {
-  transition: transform 0.3s ease;
-}
-
-.navbar-brand:hover svg {
-  transform: perspective(100px) rotateX(5deg) rotateY(-5deg) scale(1.1);
-}
-.slider i {
-  position: absolute;
-  top: 50%;
-  left: 8px;
-  transform: translateY(-50%);
-}
-
-.sun {
-  color: orange;
-}
-
-/* Initially hide the moon icon */
-.moon {
-  opacity: 0;
-}
-
-/* Hide sun in dark mode and show moon */
-input:checked + .slider .sun {
-  opacity: 0;
-}
-
-input:checked + .slider .moon {
-  opacity: 1;
 }
